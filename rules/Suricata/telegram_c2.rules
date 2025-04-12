@@ -1,8 +1,8 @@
 # match host header or uri that includes, but it longer than, content (minus wildcard)
-alert http $HOME_NET any -> $EXTERNAL_NET any (msg:"Potential Telegram C2 in HTTP Host Header"; flow:established,to_server; http.host; content:"https://api.telegram.org/bot*"; bsize:>28; classtype:command-and-control; sid:1000000; rev:1; reference:url,https://lolc2.github.io/; metadata:created_at 2025_04_11, confidence Medium, signature_severity Medium, updated_at 2025_04_11;)
+alert http $HOME_NET any -> $EXTERNAL_NET any (msg:"Potential Telegram C2 in HTTP Host/URI"; flow:established,to_server; http.host; content:"api.telegram.org/bot"; bsize:>28; startswith; classtype:command-and-control; sid:1000000; rev:1; reference:url,https://lolc2.github.io/; metadata:created_at 2025_04_11, confidence Medium, signature_severity Medium, updated_at 2025_04_11;)
 
 # match content in tls sni
-alert tls $HOME_NET any -> $EXTERNAL_NET any(msg:"Potential Telegram C2 in TLS SNI"; tls.sni; content:"api.telegram.org"; nocase; classtype:command-and-control; sid:1000001; rev:1; reference:url,https://lolc2.github.io/; metadata:created_at 2025_04_11, confidence Medium, signature_severity Medium, updated_at 2025_04_11)
+alert tls $HOME_NET any -> $EXTERNAL_NET any (msg:"Potential Telegram C2 in TLS SNI"; tls.sni; content:"api.telegram.org"; nocase; classtype:command-and-control; sid:1000001; rev:1; reference:url,https://lolc2.github.io/; metadata:created_at 2025_04_11, confidence Medium, signature_severity Medium, updated_at 2025_04_11;)
 
 # match content in dns query
-alert dns $HOME_NET any -> $EXTERNAL_NET any (msg:"DNS Query for Potential Telegram C2"; dns.query; content:"api.telegram.org"; nocase; classtype:command-and-control; sid:1000002; rev:1; reference:url,https://lolc2.github.io/; metadata:created_at 2025_04_11, confidence Medium, signature_severity Medium, updated_at 2025_04_11)
+alert dns $HOME_NET any -> $EXTERNAL_NET any (msg:"DNS Query for Potential Telegram C2"; dns.query; content:"api.telegram.org"; nocase; classtype:command-and-control; sid:1000002; rev:1; reference:url,https://lolc2.github.io/; metadata:created_at 2025_04_11, confidence Medium, signature_severity Medium, updated_at 2025_04_11;)
