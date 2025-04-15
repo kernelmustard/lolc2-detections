@@ -1,6 +1,6 @@
 # match XMPP traffic over a certain threshold
-# Detection logic: Unusual volume of inbound/outbound XMPP traffic
-alert any any -> any any (msg:""; <insert rule>; classtype:command-and-control; sid:1000060; rev:1; reference:url,https://lolc2.github.io/; metadata:created_at 2025_04_11, confidence Medium, signature_severity Medium, updated_at 2025_04_11;)
+# Detection logic: Unusual volume of inbound/outbound XMPP traffic (what's unusual? 10 XMPP packets in 60 seconds currently set)
+alert tcp $HOME_NET [5222, 5269, 8010] <> $EXTERNAL_NET [5222, 5269, 8010] (msg:"Potential Whatsapp C2 (excessive XMPP in/out)"; threshold:type threshold, count 10, seconds 60, track by_src; classtype:command-and-control; sid:1000060; rev:1; reference:url,https://lolc2.github.io/; metadata:created_at 2025_04_11, confidence Medium, signature_severity Medium, updated_at 2025_04_11;)
 
 # match whatsapp domains in dns and tls sni
 alert dns $HOME_NET any -> $EXTERNAL_NET 53 (msg:"Potential Whatsapp C2 (DNS Query)"; dns.query; content:"whatsapp.net"; nocase; endswith; pcre:"/^(?:(?:[vcs]|e[1-9]|e1[0-6]|mms)\.)?whatsapp.net$/i"; classtype:command-and-control; sid:1000061; rev:1; reference:url,https://lolc2.github.io/; metadata:created_at 2025_04_11, confidence Medium, signature_severity Medium, updated_at 2025_04_11;)
@@ -15,16 +15,14 @@ alert http $HOME_NET any -> $EXTERNAL_NET any (msg:"Potential Whatsapp C2 (HTTP 
 
 # match traffic to whatsapp connection and messaging domains
 # XMPP - connection and messaging routing: c.whatsapp.net, s.whatsapp.net, e[1-16].whatsapp.net
-# Detection logic: Unusual XMPP traffic to c.whatsapp.net and eX.whatsapp.net from a non-mobile device
-alert any any -> any any (msg:""; <insert rule>; classtype:command-and-control; sid:1000065; rev:1; reference:url,https://lolc2.github.io/; metadata:created_at 2025_04_11, confidence Medium, signature_severity Medium, updated_at 2025_04_11;)
+# Detection logic: Unusual XMPP traffic to c.whatsapp.net and eX.whatsapp.net from a non-mobile device (maybe add var in config for non-mobile devices)
+#alert any any -> any any (msg:""; <insert rule>; classtype:command-and-control; sid:1000065; rev:1; reference:url,https://lolc2.github.io/; metadata:created_at 2025_04_11, confidence Medium, signature_severity Medium, updated_at 2025_04_11;)
 
-alert any any -> any any (msg:""; <insert rule>; classtype:command-and-control; sid:1000066; rev:1; reference:url,https://lolc2.github.io/; metadata:created_at 2025_04_11, confidence Medium, signature_severity Medium, updated_at 2025_04_11;)
+alert tcp $HOME_NET [5222, 5269, 8010] <> $EXTERNAL_NET [5222, 5269, 8010] (msg:"Potential Whatsapp C2 (unusual XMPP to c/eX subdoms)"; flow:established,to_server; content:".whatsapp.net"; nocase; pcre:"/(?:c|e(?:[1-9]|1[0-6])).whatsapp.net/i"; classtype:command-and-control; sid:1000066; rev:1; reference:url,https://lolc2.github.io/; metadata:created_at 2025_04_11, confidence Medium, signature_severity Medium, updated_at 2025_04_11;)
 
 # match traffic to whatsapp media server
 # XMPP - Media server for image/file transfers: mms.whatsapp.net
 # Detection logic: Excessive outbound media uploads to mms.whatsapp.net
-alert any any -> any any (msg:""; <insert rule>; classtype:command-and-control; sid:1000067; rev:1; reference:url,https://lolc2.github.io/; metadata:created_at 2025_04_11, confidence Medium, signature_severity Medium, updated_at 2025_04_11;)
+#alert any any -> any any (msg:""; <insert rule>; classtype:command-and-control; sid:1000067; rev:1; reference:url,https://lolc2.github.io/; metadata:created_at 2025_04_11, confidence Medium, signature_severity Medium, updated_at 2025_04_11;)
 
-alert any any -> any any (msg:""; <insert rule>; classtype:command-and-control; sid:1000068; rev:1; reference:url,https://lolc2.github.io/; metadata:created_at 2025_04_11, confidence Medium, signature_severity Medium, updated_at 2025_04_11;)
-
-# Detection logic: Presence of Yowsup or whatsapp-web.js automation scripts on a system
+#alert any any -> any any (msg:""; <insert rule>; classtype:command-and-control; sid:1000068; rev:1; reference:url,https://lolc2.github.io/; metadata:created_at 2025_04_11, confidence Medium, signature_severity Medium, updated_at 2025_04_11;)
