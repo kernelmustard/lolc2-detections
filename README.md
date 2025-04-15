@@ -16,111 +16,81 @@ alert any any -> any any (msg:""; <insert rule>; classtype:command-and-control; 
 
 # Rule Status
 ## telegram
-### Tested and Passed
-### Untested
 - 3 suricata rules, 1000000-1000003, suricata/telegram_c2.rules
 
 ## counterstrike 1.6
-### Tested and Passed
-### Untested
 - 2 suricata rules, 1000010-1000011, suricata/counterstrike1_6_c2.rules
 
 ## cloudflare
-### Tested and Passed
-### Untested
+- 8 suricata rules, 1000020-10000027, suricata/cloudflare_c2.rules
 
 ## strava
-### Tested and Passed
-### Untested
+- 6 suricata rules, 1000030-1000035, suricata/strava_c2.rules
 
 ## google translate
-### Tested and Passed
-### Untested
+- 8 suricata rules, 1000040-1000047, suricata/google_translate_c2.rules
 
 ## mastodon
-### Tested and Passed
-### Untested
+- 2 suricata rules, 1000050-1000051, suricata/mastodon_c2.rules
 
 ## whatsapp
-### Tested and Passed
-### Untested
+
 
 ## microsoft printer
-### Tested and Passed
-### Untested
+
 
 ## microsoft azure application proxy
-### Tested and Passed
-### Untested
+
 
 ## asana
-### Tested and Passed
-### Untested
+
 
 ## x
-### Tested and Passed
-### Untested
+
 
 ## onedrive
-### Tested and Passed
-### Untested
+
 
 ## microsoft tasks
-### Tested and Passed
-### Untested
+
 
 ## jira
-### Tested and Passed
-### Untested
+
 
 ## twitter
-### Tested and Passed
-### Untested
+
 
 ## gmail
-### Tested and Passed
-### Untested
+
 
 ## slack
-### Tested and Passed
-### Untested
+
 
 ## cisco webex
-### Tested and Passed
-### Untested
+
 
 ## duckduckgo
-### Tested and Passed
-### Untested
+
 
 ## microsoft graph
-### Tested and Passed
-### Untested
+
 
 ## microsoft outlook
-### Tested and Passed
-### Untested
+
 
 ## microsoft power automate
-### Tested and Passed
-### Untested
+
 
 ## microsoft azure functions
-### Tested and Passed
-### Untested
+
 
 ## soundcloud
-### Tested and Passed
-### Untested
+
 
 ## spotify
-### Tested and Passed
-### Untested
+
 
 ## microsoft teams
-### Tested and Passed
-### Untested
+
 
 ## discord
-### Tested and Passed
-### Untested

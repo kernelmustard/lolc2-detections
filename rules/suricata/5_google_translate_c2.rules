@@ -1,0 +1,24 @@
+# match google translate in dns request (no static matching, bad rule)
+alert dns $HOME_NET any -> $EXTERNAL_NET any (msg:"DNS Query for Potential Google Translate C2"; dns.query; pcre:"/translate\.goog(?:le\.com)?$/i";  classtype:command-and-control; sid:1000040; rev:1; reference:url,https://lolc2.github.io/; metadata:created_at 2025_04_11, confidence Low, signature_severity Low, updated_at 2025_04_11;)
+
+# match google translate in tls sni (no static matching, bad rule)
+alert tls $HOME_NET any -> $EXTERNAL_NET any (msg:"Potential Google Translate C2 in TLS SNI"; tls.sni; pcre:"/translate\.goog(?:le\.com)?$/i"; classtype:command-and-control; sid:1000041; rev:1; reference:url,https://lolc2.github.io/; metadata:created_at 2025_04_11, confidence Low, signature_severity Low, updated_at 2025_04_11;)
+
+# bath babyshark and gtrs have hardcoded user agent
+alert http $HOME_NET any <> $EXTERNAL_NET any (msg:"Potential Google Translate C2 in HTTP User Agent"; http.user_agent; content:"Mozilla/5.0 (X11\; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36"; classtype:command-and-control; sid:1000042; rev:1; reference:url,https://lolc2.github.io/; metadata:created_at 2025_04_11, confidence Medium, signature_severity Medium, updated_at 2025_04_11;)
+
+# BabyShare C2 framework
+## User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36
+## url: /momyshark?key=*
+alert http $HOME_NET any <> $EXTERNAL_NET any (msg:"BabyShark C2 Framework in HTTP User Agent and URI"; http.user_agent; content:"Mozilla/5.0 (X11\; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36"; http.uri; content:"/momyshark?key="; startswith; classtype:command-and-control; sid:1000043; rev:1; reference:url,https://lolc2.github.io/; metadata:created_at 2025_04_11, confidence High, signature_severity High, updated_at 2025_04_11;)
+
+# subdoms of https://*.translate.goog
+alert dns $HOME_NET any -> $EXTERNAL_NET 53 (msg:"Potential Google Translate C2 in DNS Query"; dns.query; content:".translate.goog"; nocase; endswith; classtype:command-and-control; sid:1000044; rev:1; reference:url,https://lolc2.github.io/; metadata:created_at 2025_04_11, confidence Low, signature_severity Low, updated_at 2025_04_11;)
+
+alert http $HOME_NET any -> $EXTERNAL_NET any (msg:"Potential Google Translate C2 in HTTP Host"; http.host; content:"translate.goog"; endswith; classtype:command-and-control; sid:1000045; rev:1; reference:url,https://lolc2.github.io/; metadata:created_at 2025_04_11, confidence Medium, signature_severity Medium, updated_at 2025_04_11;)
+
+# high frequency polling of specific translated site
+#alert any any -> any any (msg:""; <insert rule>; classtype:command-and-control; sid:1000046; rev:1; reference:url,https://lolc2.github.io/; metadata:created_at 2025_04_11, confidence Medium, signature_severity Medium, updated_at 2025_04_11;)
+
+# base64 payload in tranlated site's user-agent
+alert http $HOME_NET any <> $EXTERNAL_NET any (msg:"Potential Google Translate C2 in HTTP User Agent (Base64)"; http.uri; content:"/momyshark?key="; startswith; http.user_agent; pcre:"/^Mozilla\/5\.0 \(X11\; Linux x86_64\) AppleWebKit\/537\.36 \(KHTML, like Gecko\) Chrome\/70\.0\.3538\.110 Safari\/537\.36\|(?|(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{4}|[A-Za-z0-9+\/]{3}=|[A-Za-z0-9+\/]{2}={2})\|?)+/"; classtype:command-and-control; sid:1000047; rev:1; reference:url,https://lolc2.github.io/; metadata:created_at 2025_04_11, confidence Medium, signature_severity Medium, updated_at 2025_04_11;)
