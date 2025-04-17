@@ -1,8 +1,0 @@
-# GET url: https://mastodon.be/api/v1/statuses/*/context
-# because mastodon is not centrally managed, instance admins can use any possible registerable domain as an address
-# uri is unique enough though
-alert http $HOME_NET any -> $EXTERNAL_NET any (msg:"Potential Mastodon C2 in HTTP GET URI"; http.method; content:"GET"; http.uri; content:"/api/v1/statuses/"; nocase; startswith; content:"/context"; nocase; endswith; classtype:command-and-control; sid:1000050; rev:1; reference:url,https://lolc2.github.io/; metadata:created_at 2025_04_11, confidence Medium, signature_severity Medium, updated_at 2025_04_11;)
-
-
-# POST url: https://mastodon.be/api/v1/statuses
-alert http $HOME_NET any -> $EXTERNAL_NET any (msg:"Potential Mastodon C2 in HTTP POST URI"; http.method; content:"POST"; http.uri; content:"/api/v1/statuses"; nocase; classtype:command-and-control; sid:1000051; rev:1; reference:url,https://lolc2.github.io/; metadata:created_at 2025_04_11, confidence Medium, signature_severity Medium, updated_at 2025_04_11;)

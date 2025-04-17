@@ -1,0 +1,80 @@
+2025-04-17 13:09:54,696 - suricata_check.suricata_check - INFO - Running suricata-check with the following arguments:
+2025-04-17 13:09:54,707 - suricata_check.suricata_check - INFO - out: suricata-check.txt
+2025-04-17 13:09:54,708 - suricata_check.suricata_check - INFO - rules: .
+2025-04-17 13:09:54,709 - suricata_check.suricata_check - INFO - single_rule: .\rules\suricata\8_microsoft_printer_c2.rules
+2025-04-17 13:09:54,710 - suricata_check.suricata_check - INFO - log_level: DEBUG
+2025-04-17 13:09:54,711 - suricata_check.suricata_check - INFO - gitlab: False
+2025-04-17 13:09:54,711 - suricata_check.suricata_check - INFO - github: False
+2025-04-17 13:09:54,713 - suricata_check.suricata_check - INFO - evaluate_disabled: False
+2025-04-17 13:09:54,713 - suricata_check.suricata_check - INFO - issue_severity: INFO
+2025-04-17 13:09:54,714 - suricata_check.suricata_check - INFO - include_all: True
+2025-04-17 13:09:54,715 - suricata_check.suricata_check - INFO - include: ()
+2025-04-17 13:09:54,716 - suricata_check.suricata_check - INFO - exclude: ()
+2025-04-17 13:09:54,717 - suricata_check.suricata_check - DEBUG - Platform: win32
+2025-04-17 13:09:54,718 - suricata_check.suricata_check - DEBUG - Python version: 3.13.2 (tags/v3.13.2:4f8bb39, Feb  4 2025, 15:23:48) [MSC v.1942 64 bit (AMD64)]
+2025-04-17 13:09:54,719 - suricata_check.suricata_check - DEBUG - suricata-check path: C:\Program Files\Python313\Lib\site-packages
+2025-04-17 13:09:54,720 - suricata_check.suricata_check - DEBUG - suricata-check version: 0.5.2b0
+2025-04-17 13:09:54,726 - suricata_check._version - DEBUG - Detected suricata-check requirements using importlib
+2025-04-17 13:09:54,764 - suricata_check.suricata_check - DEBUG - Dependency click version: 8.1.8
+2025-04-17 13:09:54,765 - suricata_check.suricata_check - DEBUG - Dependency idstools version: 0.6.5
+2025-04-17 13:09:54,767 - suricata_check.suricata_check - DEBUG - Dependency tabulate version: 0.9.0
+2025-04-17 13:09:54,768 - suricata_check.suricata_check - DEBUG - Dependency regex version: 2024.11.6
+2025-04-17 13:09:54,769 - suricata_check.suricata_check - DEBUG - Dependency numpy version: 2.2.4
+2025-04-17 13:09:54,770 - suricata_check.suricata_check - DEBUG - Dependency pandas version: 2.2.3
+2025-04-17 13:09:54,772 - suricata_check.suricata_check - DEBUG - Dependency scikit-learn version: 1.6.1
+2025-04-17 13:09:54,773 - suricata_check.suricata_check - DEBUG - Dependency xgboost version: 3.0.0
+2025-04-17 13:09:54,775 - suricata_check.suricata_check - DEBUG - Dependency pytest version: 8.3.5
+2025-04-17 13:09:54,776 - suricata_check.suricata_check - DEBUG - Dependency pytest-cov version: 6.1.1
+2025-04-17 13:09:54,777 - suricata_check.suricata_check - DEBUG - Dependency flake8 version: 7.2.0
+2025-04-17 13:09:54,778 - suricata_check.suricata_check - DEBUG - Dependency ruff version: 0.11.6
+2025-04-17 13:09:54,779 - suricata_check.suricata_check - DEBUG - Dependency black version: 25.1.0
+2025-04-17 13:09:54,780 - suricata_check.suricata_check - DEBUG - Dependency pyright version: 1.1.399
+2025-04-17 13:09:54,781 - suricata_check.suricata_check - DEBUG - Dependency sphinx version: 8.2.3
+2025-04-17 13:09:54,782 - suricata_check.suricata_check - DEBUG - Dependency sphinx-rtd-theme version: 3.0.2
+2025-04-17 13:09:54,783 - suricata_check.suricata_check - DEBUG - Dependency myst-parser[linkify] version: unknown
+2025-04-17 13:09:54,784 - suricata_check.suricata_check - DEBUG - Dependency sphinx-click version: 6.0.0
+2025-04-17 13:09:54,786 - suricata_check.suricata_check - DEBUG - Dependency sphinx-autoapi version: 3.6.0
+2025-04-17 13:09:54,787 - suricata_check.suricata_check - DEBUG - Dependency sphinx-sitemap version: 2.6.0
+2025-04-17 13:09:56,070 - suricata_check.checkers.principle.ml - INFO - Unpickled object with trained models successfully
+2025-04-17 13:09:56,072 - suricata_check.suricata_check - INFO - Discovered and enabled checkers: [BestChecker, UnexpectedChecker, MandatoryChecker, PrincipleChecker, PrincipleMLChecker, MetadataChecker, MsgChecker, OrderChecker, OverallChecker, PcreChecker, PerformanceChecker, ReferenceChecker, SidChecker, StateChecker, WhitespaceChecker]
+2025-04-17 13:09:56,074 - suricata_check.suricata_check - CRITICAL - Error parsing rule from user input: .\rules\suricata\8_microsoft_printer_c2.rules
+2025-04-17 13:11:05,188 - suricata_check.suricata_check - INFO - Running suricata-check with the following arguments:
+2025-04-17 13:11:05,198 - suricata_check.suricata_check - INFO - out: suricata-check.txt
+2025-04-17 13:11:05,200 - suricata_check.suricata_check - INFO - rules: .
+2025-04-17 13:11:05,201 - suricata_check.suricata_check - INFO - single_rule: .\rules\suricata\8_microsoft_printer_c2.rules
+2025-04-17 13:11:05,202 - suricata_check.suricata_check - INFO - log_level: DEBUG
+2025-04-17 13:11:05,203 - suricata_check.suricata_check - INFO - gitlab: False
+2025-04-17 13:11:05,204 - suricata_check.suricata_check - INFO - github: False
+2025-04-17 13:11:05,205 - suricata_check.suricata_check - INFO - evaluate_disabled: False
+2025-04-17 13:11:05,206 - suricata_check.suricata_check - INFO - issue_severity: INFO
+2025-04-17 13:11:05,207 - suricata_check.suricata_check - INFO - include_all: True
+2025-04-17 13:11:05,207 - suricata_check.suricata_check - INFO - include: ()
+2025-04-17 13:11:05,208 - suricata_check.suricata_check - INFO - exclude: ()
+2025-04-17 13:11:05,209 - suricata_check.suricata_check - DEBUG - Platform: win32
+2025-04-17 13:11:05,209 - suricata_check.suricata_check - DEBUG - Python version: 3.13.2 (tags/v3.13.2:4f8bb39, Feb  4 2025, 15:23:48) [MSC v.1942 64 bit (AMD64)]
+2025-04-17 13:11:05,210 - suricata_check.suricata_check - DEBUG - suricata-check path: C:\Program Files\Python313\Lib\site-packages
+2025-04-17 13:11:05,211 - suricata_check.suricata_check - DEBUG - suricata-check version: 0.5.2b0
+2025-04-17 13:11:05,214 - suricata_check._version - DEBUG - Detected suricata-check requirements using importlib
+2025-04-17 13:11:05,246 - suricata_check.suricata_check - DEBUG - Dependency click version: 8.1.8
+2025-04-17 13:11:05,248 - suricata_check.suricata_check - DEBUG - Dependency idstools version: 0.6.5
+2025-04-17 13:11:05,249 - suricata_check.suricata_check - DEBUG - Dependency tabulate version: 0.9.0
+2025-04-17 13:11:05,251 - suricata_check.suricata_check - DEBUG - Dependency regex version: 2024.11.6
+2025-04-17 13:11:05,252 - suricata_check.suricata_check - DEBUG - Dependency numpy version: 2.2.4
+2025-04-17 13:11:05,254 - suricata_check.suricata_check - DEBUG - Dependency pandas version: 2.2.3
+2025-04-17 13:11:05,255 - suricata_check.suricata_check - DEBUG - Dependency scikit-learn version: 1.6.1
+2025-04-17 13:11:05,256 - suricata_check.suricata_check - DEBUG - Dependency xgboost version: 3.0.0
+2025-04-17 13:11:05,257 - suricata_check.suricata_check - DEBUG - Dependency pytest version: 8.3.5
+2025-04-17 13:11:05,258 - suricata_check.suricata_check - DEBUG - Dependency pytest-cov version: 6.1.1
+2025-04-17 13:11:05,259 - suricata_check.suricata_check - DEBUG - Dependency flake8 version: 7.2.0
+2025-04-17 13:11:05,260 - suricata_check.suricata_check - DEBUG - Dependency ruff version: 0.11.6
+2025-04-17 13:11:05,261 - suricata_check.suricata_check - DEBUG - Dependency black version: 25.1.0
+2025-04-17 13:11:05,262 - suricata_check.suricata_check - DEBUG - Dependency pyright version: 1.1.399
+2025-04-17 13:11:05,263 - suricata_check.suricata_check - DEBUG - Dependency sphinx version: 8.2.3
+2025-04-17 13:11:05,264 - suricata_check.suricata_check - DEBUG - Dependency sphinx-rtd-theme version: 3.0.2
+2025-04-17 13:11:05,265 - suricata_check.suricata_check - DEBUG - Dependency myst-parser[linkify] version: unknown
+2025-04-17 13:11:05,267 - suricata_check.suricata_check - DEBUG - Dependency sphinx-click version: 6.0.0
+2025-04-17 13:11:05,268 - suricata_check.suricata_check - DEBUG - Dependency sphinx-autoapi version: 3.6.0
+2025-04-17 13:11:05,269 - suricata_check.suricata_check - DEBUG - Dependency sphinx-sitemap version: 2.6.0
+2025-04-17 13:11:06,494 - suricata_check.checkers.principle.ml - INFO - Unpickled object with trained models successfully
+2025-04-17 13:11:06,497 - suricata_check.suricata_check - INFO - Discovered and enabled checkers: [BestChecker, UnexpectedChecker, MandatoryChecker, PrincipleChecker, PrincipleMLChecker, MetadataChecker, MsgChecker, OrderChecker, OverallChecker, PcreChecker, PerformanceChecker, ReferenceChecker, SidChecker, StateChecker, WhitespaceChecker]
+2025-04-17 13:11:06,498 - suricata_check.suricata_check - CRITICAL - Error parsing rule from user input: .\rules\suricata\8_microsoft_printer_c2.rules

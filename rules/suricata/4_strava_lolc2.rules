@@ -1,0 +1,19 @@
+# can't see HTTP content in TLS, alert on strava sni
+alert tls $HOME_NET any <> $EXTERNAL_NET any (msg:"LOLC2 Strava (TLS SNI)"; tls.sni; content:"strava.com"; nocase; endswith; classtype:command-and-control; sid:1000030; rev:1; reference:url,https://lolc2.github.io/; metadata:created_at 2025_04_11, confidence Low, signature_severity Low, updated_at 2025_04_11;)
+
+# alert on dns query for strava.com
+alert dns $HOME_NET any -> $EXTERNAL_NET 53 (msg:"LOLC2 Strava (DNS Query)"; dns.query; content:"strava.com"; nocase; endswith; classtype:command-and-control; sid:1000031; rev:1; reference:url,https://lolc2.github.io/; metadata:created_at 2025_04_11, confidence Low, signature_severity Low, updated_at 2025_04_11;)
+
+# strava oauth URI
+# http://www.strava.com/oauth/authorize?client_id=*
+# https://www.strava.com/oauth/token
+alert http $HOME_NET any -> $EXTERNAL_NET any (msg:"LOLC2 Strava (oauth in HTTP URI)"; http.host; content:"strava.com"; endswith; http.uri; content:"/oauth/"; nocase; startswith; pcre:"/(?|authorize\?client_id=.*$|token$)/Ri"; classtype:command-and-control; sid:1000032; rev:1; reference:url,https://lolc2.github.io/; metadata:created_at 2025_04_11, confidence Medium, signature_severity Medium, updated_at 2025_04_11;)
+
+# strava api
+# POST & GET https://www.strava.com/api/v3/activities
+# PUT & GET https://www.strava.com/api/v3/activities/*
+alert http $HOME_NET any -> $EXTERNAL_NET any (msg:"LOLC2 Strava (api GET in HTTP URI)"; http.method; content:"GET"; http.host; content:"strava.com"; endswith; http.uri; content:"/api/v3/activities"; nocase; startswith; classtype:command-and-control; sid:1000033; rev:1; reference:url,https://lolc2.github.io/; metadata:created_at 2025_04_11, confidence Medium, signature_severity Medium, updated_at 2025_04_11;)
+
+alert http $HOME_NET any -> $EXTERNAL_NET any (msg:"LOLC2 Strava (api POST in HTTP URI)"; http.method; content:"POST"; http.host; content:"strava.com"; endswith; http.uri; content:"/api/v3/activities"; nocase; classtype:command-and-control; sid:1000034; rev:1; reference:url,https://lolc2.github.io/; metadata:created_at 2025_04_11, confidence Medium, signature_severity Medium, updated_at 2025_04_11;)
+
+alert http $HOME_NET any -> $EXTERNAL_NET any (msg:"LOLC2 Strava (api PUT in HTTP URI)"; http.method; content:"PUT"; http.host; content:"strava.com"; endswith; http.uri; content:"/api/v3/activities/"; nocase; startswith; bsize:>19; classtype:command-and-control; sid:1000035; rev:1; reference:url,https://lolc2.github.io/; metadata:created_at 2025_04_11, confidence Medium, signature_severity Medium, updated_at 2025_04_11;)
