@@ -44,6 +44,26 @@ alert any any -> any any (msg:""; <insert rule>; classtype:command-and-control; 
 | Spotify                           | Suricata  | 0, 1000240-1000240   | rules/suricata/25_spotify_lolc2.rules                   |
 | Microsoft Teams                   | Suricata  | 0, 1000250-1000250   | rules/suricata/26_microsoft_teams_lolc2.rules           |
 | Discord                           | Suricata  | 0, 1000260-1000260   | rules/suricata/27_discord_lolc2.rules                   |
+| Splunk                            | Suricata  | 0, 1000270-1000270   | rules/suricata/28_splunk_lolc2.rules                    |
+| Lichess                           | Suricata  | 0, 1000280-1000280   | rules/suricata/29_lichess_lolc2.rules                   |
+| Mattermost                        | Suricata  | 0, 1000290-1000290   | rules/suricata/30_mattermost_lolc2.rules                |
+| Google Sheets                     | Suricata  | 0, 1000300-1000300   | rules/suricata/31_google_sheets_lolc2.rules             |
+| Microsoft Sharepoint              | Suricata  | 0, 1000310-1000310   | rules/suricata/32_microsoft_sharepoint_lolc2.rules      |
+| Google Drive                      | Suricata  | 0, 1000320-1000320   | rules/suricata/33_google_drive_lolc2.rules              |
+| Google Calendar                   | Suricata  | 0, 1000330-1000330   | rules/suricata/34_google_calendar_lolc2.rules           |
+| Google Slides                     | Suricata  | 0, 1000340-1000340   | rules/suricata/35_google_slides_lolc2.rules             |
+| GitHub                            | Suricata  | 0, 1000350-1000350   | rules/suricata/36_github_lolc2.rules                    |
+| YouTube                           | Suricata  | 0, 1000360-1000360   | rules/suricata/37_youtube_lolc2.rules                   |
+| Pastebin                          | Suricata  | 0, 1000370-1000370   | rules/suricata/38_pastebin_lolc2.rules                  |
+| Reddit                            | Suricata  | 0, 1000380-1000380   | rules/suricata/39_reddit_lolc2.rules                    |
+| Dropbox                           | Suricata  | 0, 1000390-1000390   | rules/suricata/40_dropbox_lolc2.rules                   |
+| Instagram                         | Suricata  | 0, 1000400-1000400   | rules/suricata/41_instagram_lolc2.rules                 |
+| Zoom                              | Suricata  | 0, 1000410-1000410   | rules/suricata/42_zoom_lolc2.rules                      |
+| Virustotal                        | Suricata  | 0, 1000420-1000420   | rules/suricata/43_virustotal_lolc2.rules                |
+| Zulip                             | Suricata  | 0, 1000430-1000430   | rules/suricata/44_zulip_lolc2.rules                     |
+| Notion                            | Suricata  | 0, 1000440-1000440   | rules/suricata/45_notion_lolc2.rules                    |
+| Matrix                            | Suricata  | 0, 1000450-1000450   | rules/suricata/46_matrix_lolc2.rules                    |
+| OpenAI                            | Suricata  | 0, 1000460-1000460   | rules/suricata/47_openai_lolc2.rules
 
 # TODO
 - review all suricata rule severity and confidence levels
