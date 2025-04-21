@@ -1,5 +1,5 @@
 # lolc2-detections
-detection rules for attackers leveraging legitimate services for command and control
+detection rules for attackers leveraging legitimate services for command and control. DO NOT USE ALL THESE RULES!!1 Most of the Suricata rules are crap if you typically use that service in your network.
 
 # Credit
 - All credit to the lolc2 contributors (listed below 04/11/2025) for the research
@@ -19,15 +19,15 @@ alert any any -> any any (msg:""; <insert rule>; classtype:command-and-control; 
 | ---                               | ---       | ---                  | ---                                                     |
 | Telegram                          | Suricata  | 3, 1000000-1000002   | rules/suricata/1_telegram_lolc2.rules                   |
 | CounterStrike 1.6                 | Suricata  | 2, 1000010-1000011   | rules/suricata/2_counterstrike1_6_lolc2.rules           |
-| CloudFLare                        | Suricata  | 8, 1000020-1000027   | rules/suricata/3_cloudflare_lolc2.rules                 |
+| CloudfLare                        | Suricata  | 8, 1000020-1000027   | rules/suricata/3_cloudflare_lolc2.rules                 |
 | Strava                            | Suricata  | 6, 1000030-1000035   | rules/suricata/4_strava_lolc2.rules                     |
 | Google Translate                  | Suricata  | 5, 1000040-1000044   | rules/suricata/5_google_translate_lolc2.rules           |
 | Mastodon                          | Suricata  | 2, 1000050-1000051   | rules/suricata/6_mastodon_lolc2.rules                   |
 | WhatsApp                          | Suricata  | 8, 1000060-1000067   | rules/suricata/7_whatsapp_lolc2.rules                   |
 | Microsoft Printer                 | Suricata  | 3, 1000070-1000072   | rules/suricata/8_microsoft_printer_lolc2c2.rules        |
-| Microsoft Azure Application Proxy | Suricata  | 0, 1000080-1000080   | rules/suricata/9_microsoft_azure_app_proxy_lolc2.rules  |
-| Asana                             | Suricata  | 0, 1000090-1000090   | rules/suricata/10_asana_lolc2.rules                     |
-| X (twitter)                       | Suricata  | 0, 1000100-1000100   | rules/suricata/11_x_lolc2.rules                         |
+| Microsoft Azure Application Proxy | Suricata  | 7, 1000080-1000086   | rules/suricata/9_microsoft_azure_app_proxy_lolc2.rules  |
+| Asana                             | Suricata  | 3, 1000090-1000093   | rules/suricata/10_asana_lolc2.rules                     |
+| X (twitter)                       | Suricata  | 6, 1000100-1000105   | rules/suricata/11_x_lolc2.rules                         |
 | OneDrive                          | Suricata  | 0, 1000110-1000110   | rules/suricata/12_onedrive_lolc2.rules                  |
 | Microsoft Tasks                   | Suricata  | 0, 1000120-1000120   | rules/suricata/13_microsoft_tasks_lolc2.rules           |
 | Jira                              | Suricata  | 0, 1000130-1000130   | rules/suricata/14_jira_lolc2.rules                      |
