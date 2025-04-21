@@ -38,7 +38,7 @@ alert any any -> any any (msg:""; <insert rule>; classtype:command-and-control; 
 | DuckDuckGo                        | Suricata  | 3, 1000180-1000182   | rules/suricata/19_duckduckgo_lolc2.rules                |
 | Microsoft Graph                   | Suricata  | 4, 1000190-1000193   | rules/suricata/20_microsoft_graph_lolc2.rules           |
 | Microsoft Outlook                 | Suricata  | 4, 1000200-1000203   | rules/suricata/21_microsoft_outlook_lolc2.rules         |
-| Microsoft Power Automate          | Suricata  | 0, 1000210-1000210   | rules/suricata/22_microsoft_power_automate_lolc2.rules  |
+| Microsoft Power Automate          | Suricata  | 1, 1000210-1000210   | rules/suricata/22_microsoft_power_automate_lolc2.rules  |
 | Microsoft Azure Functions         | Suricata  | 0, 1000220-1000220   | rules/suricata/23_microsoft_azure_functions_lolc2.rules |
 | SoundCloud                        | Suricata  | 0, 1000230-1000230   | rules/suricata/24_soundcloud_lolc2.rules                |
 | Spotify                           | Suricata  | 0, 1000240-1000240   | rules/suricata/25_spotify_lolc2.rules                   |

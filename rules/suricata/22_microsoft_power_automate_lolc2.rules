@@ -1,0 +1,42 @@
+# dns and tls sni (general)
+
+# dns and tls sni (pac2)
+
+# pac2 http beacon
+
+# pac2 dropbox beacon
+
+# pac2 powerautomate beacon
+# url https://powerautomate_url>/providers/Microsoft.PowerApps/apis/shared_flowmanagement
+
+
+# url: https://graph.microsoft.com/v1.0/*metadata#teams*
+# url: https://graph.microsoft.com/v1.0/*metadata#chats*/members
+# url: https://graph.microsoft.com/beta/*metadata#chats
+# url: https://graph.microsoft.com/beta/*metadata#teams*/channels*/messages
+# url: https://www.dropbox.com/cli_link_nonce?nonce=f*
+# url: https://content.dropboxapi.com/2/files/upload
+# url: https://api.dropboxapi.com/2/files/download
+# host pcre /(?:graph\.microsoft|dropbox|(?:content\.|api\.)dropboxapi)\.com$/i
+# uri pcre /\/(?:v1\.0\/.+metadata#(?:teams.+|chats.+\/members)|beta\/.+metadata#(?:chats|teams.+\/channels.+\/messages)|cli_link_nonce\?nonce=f.+|2\/files\/(?:upload|download))/i
+
+# [pac2] url: */providers/Microsoft.PowerApps/apis/shared_flowmanagement
+# [pac2] url: */providers/Microsoft.PowerApps/apis/shared_dropbox
+# [pac2] url: *pac2/*/upload/connections.json
+# [pac2] url: *pac2/*/payload
+# [pac2] url: https://make.powerautomate.com
+# [pac2] url: */portal/client/payload
+# [pac2] url: */api/teams/messages?channel_id=*
+# [pac2] url: */portal/teams?client_id=*
+# [pac2] url: */api/teams/chats
+# [pac2] url: */api/teams/channels
+# [pac2] url: */api/teams/messages
+# [pac2] url: */api/teams/graph
+# [pac2] url: */teams/chat_members
+# [pac2] User-Agent: azure-logic-apps/1.0
+# host pcre //i
+# uri pcre //i
+# 
+alert http $HOME_NET any <> $EXTERNAL_NET any (msg:"LOLC2 Microsoft Power Automate (PAC2 User Agent)"; http.user_agent; content:"azure-logic-apps/1.0"; nocase; classtype:command-and-control; sid:1000210; rev:1; reference:url,https://lolc2.github.io/; metadata:created_at 2025_04_11, confidence Medium, signature_severity Medium, updated_at 2025_04_11;)
+
+# Unclear at first glance which traffic is visible from client inside $HOME_NET
