@@ -32,8 +32,8 @@ alert any any -> any any (msg:""; <insert rule>; classtype:command-and-control; 
 | Microsoft Tasks                   | Suricata  | 4, 1000120-1000123   | rules/suricata/13_microsoft_tasks_lolc2.rules           |
 | Jira                              | Suricata  | 3, 1000130-1000132   | rules/suricata/14_jira_lolc2.rules                      |
 | Twitter (X)                       | Suricata  | 3, 1000140-1000142   | rules/suricata/15_twitter_lolc2.rules                   |
-| Gmail                             | Suricata  | 0, 1000150-1000150   | rules/suricata/16_gmail_lolc2.rules                     |
-| Slack                             | Suricata  | 0, 1000160-1000160   | rules/suricata/17_slack_lolc2.rules                     |
+| Gmail                             | Suricata  | 4, 1000150-1000153   | rules/suricata/16_gmail_lolc2.rules                     |
+| Slack                             | Suricata  | 3, 1000160-1000162   | rules/suricata/17_slack_lolc2.rules                     |
 | Cisco Webex                       | Suricata  | 0, 1000170-1000170   | rules/suricata/18_cisco_webex_lolc2.rules               |
 | DuckDuckGo                        | Suricata  | 0, 1000180-1000180   | rules/suricata/19_duckduckgo_lolc2.rules                |
 | Microsoft Graph                   | Suricata  | 0, 1000190-1000190   | rules/suricata/20_microsoft_graph_lolc2.rules           |
