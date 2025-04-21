@@ -28,10 +28,10 @@ alert any any -> any any (msg:""; <insert rule>; classtype:command-and-control; 
 | Microsoft Azure Application Proxy | Suricata  | 7, 1000080-1000086   | rules/suricata/9_microsoft_azure_app_proxy_lolc2.rules  |
 | Asana                             | Suricata  | 3, 1000090-1000093   | rules/suricata/10_asana_lolc2.rules                     |
 | X (twitter)                       | Suricata  | 6, 1000100-1000105   | rules/suricata/11_x_lolc2.rules                         |
-| OneDrive                          | Suricata  | 0, 1000110-1000110   | rules/suricata/12_onedrive_lolc2.rules                  |
-| Microsoft Tasks                   | Suricata  | 0, 1000120-1000120   | rules/suricata/13_microsoft_tasks_lolc2.rules           |
-| Jira                              | Suricata  | 0, 1000130-1000130   | rules/suricata/14_jira_lolc2.rules                      |
-| Twitter (X)                       | Suricata  | 0, 1000140-1000140   | rules/suricata/15_twitter_lolc2.rules                   |
+| OneDrive                          | Suricata  | 7, 1000110-1000116   | rules/suricata/12_onedrive_lolc2.rules                  |
+| Microsoft Tasks                   | Suricata  | 4, 1000120-1000123   | rules/suricata/13_microsoft_tasks_lolc2.rules           |
+| Jira                              | Suricata  | 3, 1000130-1000132   | rules/suricata/14_jira_lolc2.rules                      |
+| Twitter (X)                       | Suricata  | 3, 1000140-1000142   | rules/suricata/15_twitter_lolc2.rules                   |
 | Gmail                             | Suricata  | 0, 1000150-1000150   | rules/suricata/16_gmail_lolc2.rules                     |
 | Slack                             | Suricata  | 0, 1000160-1000160   | rules/suricata/17_slack_lolc2.rules                     |
 | Cisco Webex                       | Suricata  | 0, 1000170-1000170   | rules/suricata/18_cisco_webex_lolc2.rules               |
