@@ -34,8 +34,8 @@ alert any any -> any any (msg:""; <insert rule>; classtype:command-and-control; 
 | Twitter (X)                       | Suricata  | 3, 1000140-1000142   | rules/suricata/15_twitter_lolc2.rules                   |
 | Gmail                             | Suricata  | 4, 1000150-1000153   | rules/suricata/16_gmail_lolc2.rules                     |
 | Slack                             | Suricata  | 3, 1000160-1000162   | rules/suricata/17_slack_lolc2.rules                     |
-| Cisco Webex                       | Suricata  | 0, 1000170-1000170   | rules/suricata/18_cisco_webex_lolc2.rules               |
-| DuckDuckGo                        | Suricata  | 0, 1000180-1000180   | rules/suricata/19_duckduckgo_lolc2.rules                |
+| Cisco Webex                       | Suricata  | 1, 1000170-1000170   | rules/suricata/18_cisco_webex_lolc2.rules               |
+| DuckDuckGo                        | Suricata  | 3, 1000180-1000182   | rules/suricata/19_duckduckgo_lolc2.rules                |
 | Microsoft Graph                   | Suricata  | 0, 1000190-1000190   | rules/suricata/20_microsoft_graph_lolc2.rules           |
 | Microsoft Outlook                 | Suricata  | 0, 1000200-1000200   | rules/suricata/21_microsoft_outlook_lolc2.rules         |
 | Microsoft Power Automate          | Suricata  | 0, 1000210-1000210   | rules/suricata/22_microsoft_power_automate_lolc2.rules  |
@@ -44,3 +44,6 @@ alert any any -> any any (msg:""; <insert rule>; classtype:command-and-control; 
 | Spotify                           | Suricata  | 0, 1000240-1000240   | rules/suricata/25_spotify_lolc2.rules                   |
 | Microsoft Teams                   | Suricata  | 0, 1000250-1000250   | rules/suricata/26_microsoft_teams_lolc2.rules           |
 | Discord                           | Suricata  | 0, 1000260-1000260   | rules/suricata/27_discord_lolc2.rules                   |
+
+# TODO
+- review all suricata rule severity and confidence levels

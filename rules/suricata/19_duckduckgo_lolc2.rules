@@ -1,0 +1,7 @@
+# dns and tls sni (combined with pcre kinda bad)
+alert dns $HOME_NET any -> any 53 (msg:"LOLC2 DuckDuckGo (DNS Query)"; dns.query; content:".com"; nocase; endswith; pcre:"/^(?:proxy\.duckduckgo|.+\.pythonanywhere)\.com$/i"; classtype:command-and-control; sid:1000180; rev:1; reference:url,https://lolc2.github.io/; metadata:created_at 2025_04_11, confidence Medium, signature_severity Medium, updated_at 2025_04_11;)
+
+alert tls $HOME_NET any <> $EXTERNAL_NET any (msg:"LOLC2 DuckDuckGo (TLS SNI)"; tls.sni; content:".com"; nocase; endswith; pcre:"/^(?:proxy\.duckduckgo|.+\.pythonanywhere)\.com$/i"; classtype:command-and-control; sid:1000181; rev:1; reference:url,https://lolc2.github.io/; metadata:created_at 2025_04_11, confidence Medium, signature_severity Medium, updated_at 2025_04_11;)
+
+# url: https://proxy.duckduckgo.com/iu/?u=
+alert http $HOME_NET any -> $EXTERNAL_NET any (msg:"LOLC2 DuckDuckGo (DuckDuckGo Image Proxy for PythonAnywhere in HTTP Host and URI)"; http.host; content:"proxy.duckduckgo.com"; http.uri; content:"/iu/?u="; nocase; startswith; pcre:"/^\/iu\/\?u=https:\/\/\w+\.pythonanywhere\.com\/image\.jpg\?cmd=.+/i"; classtype:command-and-control; sid:1000182; rev:1; reference:url,https://lolc2.github.io/; metadata:created_at 2025_04_11, confidence Medium, signature_severity Medium, updated_at 2025_04_11;)
