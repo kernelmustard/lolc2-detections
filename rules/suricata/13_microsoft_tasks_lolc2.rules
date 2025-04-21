@@ -1,0 +1,16 @@
+# dns and tls sni
+alert dns $HOME_NET any -> any 53 (msg:"LOLC2 Microsoft Tasks (DNS Query)"; dns.query; pcre:"/^(?:outlook\.office\.com|login\.windows\.net)$/i"; classtype:command-and-control; sid:1000120; rev:1; reference:url,https://lolc2.github.io/; metadata:created_at 2025_04_11, confidence Medium, signature_severity Medium, updated_at 2025_04_11;)
+
+alert tls $HOME_NET any <> $EXTERNAL_NET any (msg:"LOLC2 Microsoft Tasks (TLS SNI)"; tls.sni; pcre:"/(?:outlook\.office\.com|login\.windows\.net)/i"; classtype:command-and-control; sid:1000121; rev:1; reference:url,https://lolc2.github.io/; metadata:created_at 2025_04_11, confidence Medium, signature_severity Medium, updated_at 2025_04_11;)
+
+
+# url: https://outlook.office.com/api/v2.0/me/tasks/*
+# url: https://outlook.office.com/api/v2.0/me/tasks
+alert http $HOME_NET any -> $EXTERNAL_NET any (msg:"LOLC2 Microsoft Tasks (Outlook Tasks API)"; http.host; content:"outlook.office.com"; http.uri; content:"/api/v2.0/me/tasks"; startswith; classtype:command-and-control; sid:1000122; rev:1; reference:url,https://lolc2.github.io/; metadata:created_at 2025_04_11, confidence Medium, signature_severity Medium, updated_at 2025_04_11;)
+
+
+# url: https://login.windows.net/organizations/oauth2/v2.0/token/*
+alert http $HOME_NET any -> $EXTERNAL_NET any (msg:"LOLC2 Microsoft Tasks (auth token API)"; http.host; content:"login.windows.net"; http.uri; content:"/organizations/oauth2/v2.0/token/"; nocase; startswith; bsize:>33; classtype:command-and-control; sid:1000123; rev:1; reference:url,https://lolc2.github.io/; metadata:created_at 2025_04_11, confidence Medium, signature_severity Medium, updated_at 2025_04_11;)
+
+# TODO:
+# - add static content to dns and tls sni rules
