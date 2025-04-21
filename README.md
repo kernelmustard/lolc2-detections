@@ -14,7 +14,7 @@ detection rules for attackers leveraging legitimate services for command and con
 alert any any -> any any (msg:""; <insert rule>; classtype:command-and-control; sid:1000000; rev:1; reference:url,https://lolc2.github.io/; metadata:created_at 2025_04_11, confidence Medium, signature_severity Medium, updated_at 2025_04_11;)
 ```
 
-# Rule Status
+# Rule Catalog
 | LOLC2 Method                      | Rule Type | Number, Range of IDs | Rule File Path                                          |
 | ---                               | ---       | ---                  | ---                                                     |
 | Telegram                          | Suricata  | 3, 1000000-1000002   | rules/suricata/1_telegram_lolc2.rules                   |
@@ -36,8 +36,8 @@ alert any any -> any any (msg:""; <insert rule>; classtype:command-and-control; 
 | Slack                             | Suricata  | 3, 1000160-1000162   | rules/suricata/17_slack_lolc2.rules                     |
 | Cisco Webex                       | Suricata  | 1, 1000170-1000170   | rules/suricata/18_cisco_webex_lolc2.rules               |
 | DuckDuckGo                        | Suricata  | 3, 1000180-1000182   | rules/suricata/19_duckduckgo_lolc2.rules                |
-| Microsoft Graph                   | Suricata  | 0, 1000190-1000190   | rules/suricata/20_microsoft_graph_lolc2.rules           |
-| Microsoft Outlook                 | Suricata  | 0, 1000200-1000200   | rules/suricata/21_microsoft_outlook_lolc2.rules         |
+| Microsoft Graph                   | Suricata  | 4, 1000190-1000193   | rules/suricata/20_microsoft_graph_lolc2.rules           |
+| Microsoft Outlook                 | Suricata  | 4, 1000200-1000203   | rules/suricata/21_microsoft_outlook_lolc2.rules         |
 | Microsoft Power Automate          | Suricata  | 0, 1000210-1000210   | rules/suricata/22_microsoft_power_automate_lolc2.rules  |
 | Microsoft Azure Functions         | Suricata  | 0, 1000220-1000220   | rules/suricata/23_microsoft_azure_functions_lolc2.rules |
 | SoundCloud                        | Suricata  | 0, 1000230-1000230   | rules/suricata/24_soundcloud_lolc2.rules                |
@@ -47,3 +47,4 @@ alert any any -> any any (msg:""; <insert rule>; classtype:command-and-control; 
 
 # TODO
 - review all suricata rule severity and confidence levels
+- review all LOLC2 projects more thoroughly for network indicators
