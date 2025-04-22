@@ -1,0 +1,8 @@
+# Before forwarding: only url: https://*.azurewebsites.net/api/*
+
+
+# POST - url: */FortyNorth/PostIt
+# GET - url: */FortyNorth/GetIt
+# url: */FortyNorth/StageIt
+
+# User-Agent: Microsoft-CryptoAPI/6.1
