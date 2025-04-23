@@ -1,0 +1,2 @@
+# SplunkWhisperer2 installs a custom app that runs under the Splunk UF context and communicates via the Splunk Deployment Server
+# not really detectable via network sensor

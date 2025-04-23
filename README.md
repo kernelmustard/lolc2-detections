@@ -45,7 +45,7 @@ alert any any -> any any (msg:""; <insert rule>; classtype:command-and-control; 
 | Microsoft Teams                   | Suricata  | 3, 1000250-1000252   | rules/suricata/26_microsoft_teams_lolc2.rules           |
 | Discord                           | Suricata  | 3, 1000260-1000262   | rules/suricata/27_discord_lolc2.rules                   |
 | Splunk                            | Suricata  | 0, 1000270-1000270   | rules/suricata/28_splunk_lolc2.rules                    |
-| Lichess                           | Suricata  | 0, 1000280-1000280   | rules/suricata/29_lichess_lolc2.rules                   |
+| Lichess                           | Suricata  | 4, 1000280-1000283   | rules/suricata/29_lichess_lolc2.rules                   |
 | Mattermost                        | Suricata  | 0, 1000290-1000290   | rules/suricata/30_mattermost_lolc2.rules                |
 | Google Sheets                     | Suricata  | 0, 1000300-1000300   | rules/suricata/31_google_sheets_lolc2.rules             |
 | Microsoft Sharepoint              | Suricata  | 0, 1000310-1000310   | rules/suricata/32_microsoft_sharepoint_lolc2.rules      |

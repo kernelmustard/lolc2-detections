@@ -1,0 +1,12 @@
+# lichess.org
+alert dns $HOME_NET any -> any 53 (msg:"LOLC2 Lichess (DNS Query)"; dns.query; content:"lichess.org"; nocase; classtype:command-and-control; sid:1000280; rev:1; reference:url,https://lolc2.github.io/; metadata:created_at 2025_04_11, confidence Medium, signature_severity Medium, updated_at 2025_04_11;)
+
+alert tls $HOME_NET any <> $EXTERNAL_NET any (msg:"LOLC2 Lichess (TLS SNI)"; tls.sni; content:"lichess.org"; nocase; classtype:command-and-control; sid:1000281; rev:1; reference:url,https://lolc2.github.io/; metadata:created_at 2025_04_11, confidence Medium, signature_severity Medium, updated_at 2025_04_11;)
+
+# GET https://lichess.org/api/stream/event
+# GET https://lichess.org/api/bot/game/stream/
+alert http $HOME_NET any -> $EXTERNAL_NET any (msg:"LOLC2 Lichess (GET API in HTTP URI)"; http.host; content:"lichess.org"; http.method; content:"GET"; http.uri; pcre:"/^\/api\/(?:stream\/event|bot\/game\/stream)/i"; classtype:command-and-control; sid:1000282; rev:1; reference:url,https://lolc2.github.io/; metadata:created_at 2025_04_11, confidence Medium, signature_severity Medium, updated_at 2025_04_11;)
+
+# POST https://lichess.org/api/bot/game/*/move/*
+# POST https://lichess.org/api/challenge/*
+alert http $HOME_NET any -> $EXTERNAL_NET any (msg:"POST API in HTTP URI"; http.host; content:"lichess.org"; http.method; content:"POST"; http.uri; pcre:"/^\/api\/(?:bot\/game\/\w+\/move\/\w+|challenge\/\w+)/i"; classtype:command-and-control; sid:1000283; rev:1; reference:url,https://lolc2.github.io/; metadata:created_at 2025_04_11, confidence Medium, signature_severity Medium, updated_at 2025_04_11;)
