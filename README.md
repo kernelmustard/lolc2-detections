@@ -42,7 +42,7 @@ alert any any -> any any (msg:""; <insert rule>; classtype:command-and-control; 
 | Microsoft Azure Functions         | Suricata  | 0, 1000220-1000220   | rules/suricata/23_microsoft_azure_functions_lolc2.rules |
 | SoundCloud                        | Suricata  | 3, 1000230-1000232   | rules/suricata/24_soundcloud_lolc2.rules                |
 | Spotify                           | Suricata  | 5, 1000240-1000244   | rules/suricata/25_spotify_lolc2.rules                   |
-| Microsoft Teams                   | Suricata  | 0, 1000250-1000250   | rules/suricata/26_microsoft_teams_lolc2.rules           |
+| Microsoft Teams                   | Suricata  | 3, 1000250-1000252   | rules/suricata/26_microsoft_teams_lolc2.rules           |
 | Discord                           | Suricata  | 0, 1000260-1000260   | rules/suricata/27_discord_lolc2.rules                   |
 | Splunk                            | Suricata  | 0, 1000270-1000270   | rules/suricata/28_splunk_lolc2.rules                    |
 | Lichess                           | Suricata  | 0, 1000280-1000280   | rules/suricata/29_lichess_lolc2.rules                   |

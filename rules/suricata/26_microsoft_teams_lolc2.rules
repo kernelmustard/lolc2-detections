@@ -1,0 +1,10 @@
+# url: https://teams.microsoft.com/api/chatsvc/*/v1/threads
+# url: https://teams.microsoft.com/api/chatsvc/*/v1/users/ME/conversations/
+alert dns $HOME_NET any -> any 53 (msg:"LOLC2 Microsoft Teams (DNS Query)"; dns.query; content:"teams.microsoft.com"; nocase; classtype:command-and-control; sid:1000250; rev:1; reference:url,https://lolc2.github.io/; metadata:created_at 2025_04_11, confidence Medium, signature_severity Medium, updated_at 2025_04_11;)
+
+alert tls $HOME_NET any <> $EXTERNAL_NET any (msg:"LOLC2 Microsoft Teams (TLS SNI)"; tls.sni; content:"teams.microsoft.com"; nocase; classtype:command-and-control; sid:1000251; rev:1; reference:url,https://lolc2.github.io/; metadata:created_at 2025_04_11, confidence Medium, signature_severity Medium, updated_at 2025_04_11;)
+
+alert http $HOME_NET any -> $EXTERNAL_NET any (msg:"LOLC2 Microsoft Teams (API in HTTP Host and URI)"; http.host; content:"teams.microsoft.com"; http.uri; pcre:"/^\/api\/chatsvc\/.+\/v1\/(?:threads|users\/ME\/conversations)/i"; classtype:command-and-control; sid:1000252; rev:1; reference:url,https://lolc2.github.io/; metadata:created_at 2025_04_11, confidence Medium, signature_severity Medium, updated_at 2025_04_11;)
+
+# attacker begins with POST to https://teams.microsoft.com/api/chatsvc/emea/v1/threads with UID of victim and attacker in body
+# commands are sent via aria-label attribute of <span> tags with display:none; teams client can't see, but agent pulls command from log file
