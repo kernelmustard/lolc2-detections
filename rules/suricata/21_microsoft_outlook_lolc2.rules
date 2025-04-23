@@ -4,6 +4,7 @@ alert dns $HOME_NET any -> any 53 (msg:"LOLC2 Microsoft Outlook (DNS Query)"; dn
 alert tls $HOME_NET any <> $EXTERNAL_NET any (msg:"LOLC2 Microsoft Outlook (TLS SNI)"; tls.sni; content:".com"; nocase; endswith; pcre:"/(?:graph\.microsoft|login\.microsoftonline)\.com$/i"; classtype:command-and-control; sid:1000201; rev:1; reference:url,https://lolc2.github.io/; metadata:created_at 2025_04_11, confidence Medium, signature_severity Medium, updated_at 2025_04_11;)
 
 # [specula] - User-Agent: Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 10.0; WOW64; Trident/7.0; Specula; Microsoft Outlook*
+
 alert http $HOME_NET any <> $EXTERNAL_NET any (msg:"LOLC2 Microsoft Outlook (Specula User Agent)"; http.user_agent; content:"Mozilla/5.0 (compatible\; MSIE 10.0\; Windows NT 10.0\; WOW64\; Trident/7.0\; Specula\; Microsoft Outlook"; startswith; classtype:command-and-control; sid:1000202; rev:1; reference:url,https://lolc2.github.io/; metadata:created_at 2025_04_11, confidence Medium, signature_severity Medium, updated_at 2025_04_11;)
 
 # [azureOutlookC2] url: https://login.microsoftonline.com/*/oauth2/token?api-version=1.0

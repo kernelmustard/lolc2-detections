@@ -1,0 +1,13 @@
+# url: https://api.spotify.com/v1/*
+alert dns $HOME_NET any -> any 53 (msg:"LOLC2 Spotify (API DNS Query)"; dns.query; content:"api.spotify.com"; nocase; classtype:command-and-control; sid:1000240; rev:1; reference:url,https://lolc2.github.io/; metadata:created_at 2025_04_11, confidence Medium, signature_severity Medium, updated_at 2025_04_11;)
+
+alert tls $HOME_NET any <> $EXTERNAL_NET any (msg:"LOLC2 Spotify (API TLS SNI)"; tls.sni; content:"api.spotify.com"; nocase; classtype:command-and-control; sid:1000241; rev:1; reference:url,https://lolc2.github.io/; metadata:created_at 2025_04_11, confidence Medium, signature_severity Medium, updated_at 2025_04_11;)
+
+# url: https://p.scdn.co/mp3-preview/ (audio)
+alert dns $HOME_NET any -> any 53 (msg:"LOLC2 Spotify (CND DNS Query)"; dns.query; content:"p.scdn.co"; nocase; classtype:command-and-control; sid:1000242; rev:1; reference:url,https://lolc2.github.io/; metadata:created_at 2025_04_11, confidence Medium, signature_severity Medium, updated_at 2025_04_11;)
+
+alert tls $HOME_NET any <> $EXTERNAL_NET any (msg:"LOLC2 Spotify (CND TLS SNI)"; tls.sni; content:"p.scdn.co"; classtype:command-and-control; sid:1000243; rev:1; reference:url,https://lolc2.github.io/; metadata:created_at 2025_04_11, confidence Medium, signature_severity Medium, updated_at 2025_04_11;)
+
+# get the contents of a playlist by id, parse for first letters as encoded command
+# https://api.spotify.com/v1/playlists/{playlist_id} (22-len Base62 string)
+alert http $HOME_NET any -> $EXTERNAL_NET any (msg:"LOLC2 Spotify (Playlist API in HTTP URI)"; http.host; content:"api.spotify.com"; http.uri; content:"/v1/playlists/"; nocase; startswith; bsize:36; classtype:command-and-control; sid:1000244; rev:1; reference:url,https://lolc2.github.io/; metadata:created_at 2025_04_11, confidence Medium, signature_severity Medium, updated_at 2025_04_11;)
