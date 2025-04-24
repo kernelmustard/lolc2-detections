@@ -47,7 +47,7 @@ alert any any -> any any (msg:""; <insert rule>; classtype:command-and-control; 
 | Splunk                            | Suricata  | 0, 1000270-1000270   | rules/suricata/28_splunk_lolc2.rules                    |
 | Lichess                           | Suricata  | 4, 1000280-1000283   | rules/suricata/29_lichess_lolc2.rules                   |
 | Mattermost                        | Suricata  | 1, 1000290-1000290   | rules/suricata/30_mattermost_lolc2.rules                |
-| Google Sheets                     | Suricata  | 0, 1000300-1000300   | rules/suricata/31_google_sheets_lolc2.rules             |
+| Google Sheets                     | Suricata  | 4, 1000300-1000303   | rules/suricata/31_google_sheets_lolc2.rules             |
 | Microsoft Sharepoint              | Suricata  | 0, 1000310-1000310   | rules/suricata/32_microsoft_sharepoint_lolc2.rules      |
 | Google Drive                      | Suricata  | 0, 1000320-1000320   | rules/suricata/33_google_drive_lolc2.rules              |
 | Google Calendar                   | Suricata  | 0, 1000330-1000330   | rules/suricata/34_google_calendar_lolc2.rules           |
