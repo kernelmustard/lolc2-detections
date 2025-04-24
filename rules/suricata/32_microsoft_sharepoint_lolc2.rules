@@ -1,0 +1,10 @@
+# url: https://graph.microsoft.com/v1.0/sites/*/lists/*/items/
+# url: https://graph.microsoft.com/v1.0/sites/*/lists/*
+
+# dns and tls sni
+alert dns $HOME_NET any -> any 53 (msg:"LOLC2 Microsoft Sharepoint (DNS Query)"; dns.query; content:"graph.microsoft.com"; nocase; classtype:command-and-control; sid:1000310; rev:1; reference:url,https://lolc2.github.io/; metadata:created_at 2025_04_11, confidence Medium, signature_severity Medium, updated_at 2025_04_11;)
+
+alert tls $HOME_NET any <> $EXTERNAL_NET any (msg:"LOLC2 Microsoft Sharepoint (TLS SNI)"; tls.sni; content:"graph.microsoft.com"; nocase; classtype:command-and-control; sid:1000311; rev:1; reference:url,https://lolc2.github.io/; metadata:created_at 2025_04_11, confidence Medium, signature_severity Medium, updated_at 2025_04_11;)
+
+# http uri
+alert http $EXTERNAL_NET any -> $EXTERNAL_NET any (msg:"LOLC2 Microsoft Sharepoint (HTTP URI)"; http.host; content:"graph.microsoft.com"; http.uri; pcre:"/^\/v1\.0\/sites\/.+\/lists\/.+(?:\/items)?/i"; classtype:command-and-control; sid:1000312; rev:1; reference:url,https://lolc2.github.io/; metadata:created_at 2025_04_11, confidence Medium, signature_severity Medium, updated_at 2025_04_11;)
