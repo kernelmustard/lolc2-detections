@@ -50,7 +50,7 @@ alert any any -> any any (msg:""; <insert rule>; classtype:command-and-control; 
 | Google Sheets                     | Suricata  | 4, 1000300-1000303   | rules/suricata/31_google_sheets_lolc2.rules             |
 | Microsoft Sharepoint              | Suricata  | 3, 1000310-1000312   | rules/suricata/32_microsoft_sharepoint_lolc2.rules      |
 | Google Drive                      | Suricata  | 5, 1000320-1000324   | rules/suricata/33_google_drive_lolc2.rules              |
-| Google Calendar                   | Suricata  | 0, 1000330-1000330   | rules/suricata/34_google_calendar_lolc2.rules           |
+| Google Calendar                   | Suricata  | 3, 1000330-1000332   | rules/suricata/34_google_calendar_lolc2.rules           |
 | Google Slides                     | Suricata  | 0, 1000340-1000340   | rules/suricata/35_google_slides_lolc2.rules             |
 | GitHub                            | Suricata  | 0, 1000350-1000350   | rules/suricata/36_github_lolc2.rules                    |
 | YouTube                           | Suricata  | 0, 1000360-1000360   | rules/suricata/37_youtube_lolc2.rules                   |
@@ -69,3 +69,7 @@ alert any any -> any any (msg:""; <insert rule>; classtype:command-and-control; 
 - review all suricata rule severity and confidence levels
 - review all LOLC2 projects more thoroughly for network indicators
 - setting alert limits on the noisier rules might make them more useful
+- dns/tls rules for different products from the same company have very similar or matching `dns.query` and `tls.sni` content
+  - cant remove those rules because that creates an dependency on another rule
+  - maybe group rules by company (microsoft/google mainly)
+  - that would mess up current org by lolc2 order
