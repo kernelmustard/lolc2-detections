@@ -1,0 +1,13 @@
+# dns and tls sni
+alert dns $HOME_NET any -> any 53 (msg:"LOLC2 GitHub (DNS Query)"; dns.query; content:"github"; nocase; pcre:"/^(?:api|codeload|.+\.app|.+actions|raw|objects|gist)\.github(?:\.(?:com|dev)|usercontent\.com)$/i"; classtype:command-and-control; sid:1000350; rev:1; reference:url,https://lolc2.github.io/; metadata:created_at 2025_04_11, confidence Medium, signature_severity Medium, updated_at 2025_04_11;)
+
+alert tls $HOME_NET any <> $EXTERNAL_NET any (msg:"LOLC2 GitHub (TLS SNI)"; tls.sni; content:"github"; nocase; pcre:"/^(?:api|codeload|.+\.app|.+actions|raw|objects|gist)\.github(?:\.(?:com|dev)|usercontent\.com)$/i"; classtype:command-and-control; sid:1000351; rev:1; reference:url,https://lolc2.github.io/; metadata:created_at 2025_04_11, confidence Medium, signature_severity Medium, updated_at 2025_04_11;)
+
+# url: https://api.github.com/*
+# url: https://codeload.github.com*
+# url: https://*.app.github.dev/*
+# url: https://*actions.githubusercontent.com*
+# url: https://raw.githubusercontent.com*
+# url: https://gist.githubusercontent.com/*/*/r
+# url: https://objects.githubusercontent.com/github-production-release-asset-*
+alert http $HOME_NET any <> $EXTERNAL_NET any (msg:"LOLC2 GitHub (HTTP Host)"; http.host; content:"github"; pcre:"/^(?:api|codeload|.+\.app|.+actions|raw|objects|gist)\.github(?:\.(?:com|dev)|usercontent\.com)$/i"; classtype:command-and-control; sid:1000352; rev:1; reference:url,https://lolc2.github.io/; metadata:created_at 2025_04_11, confidence Medium, signature_severity Medium, updated_at 2025_04_11;)
