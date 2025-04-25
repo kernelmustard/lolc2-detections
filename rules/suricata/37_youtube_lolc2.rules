@@ -1,0 +1,8 @@
+# dns and tls sni
+alert dns $HOME_NET any -> any 53 (msg:"LOLC2 YouTube (DNS Query)"; dns.query; content:"googleapis.com"; nocase; classtype:command-and-control; sid:1000360; rev:1; reference:url,https://lolc2.github.io/; metadata:created_at 2025_04_11, confidence Medium, signature_severity Medium, updated_at 2025_04_11;)
+
+alert tls $HOME_NET any <> $EXTERNAL_NET any (msg:"LOLC2 YouTube (TLS SNI)"; tls.sni; content:"googleapis.com"; nocase; classtype:command-and-control; sid:1000361; rev:1; reference:url,https://lolc2.github.io/; metadata:created_at 2025_04_11, confidence Medium, signature_severity Medium, updated_at 2025_04_11;)
+
+# url: https://www.googleapis.com/youtube/*
+# url: https://www.googleapis.com/youtube/v3/commentThreads?key=*
+alert http $HOME_NET any -> $EXTERNAL_NET any (msg:"LOLC2 YouTube (comment API)"; http.host; content:"googleapis.com"; http.uri; content:"/youtube/"; startswith; pcre:"/^\/youtube\/(?:v3\/commentThreads\?key=)?.+/"; classtype:command-and-control; sid:1000362; rev:1; reference:url,https://lolc2.github.io/; metadata:created_at 2025_04_11, confidence Medium, signature_severity Medium, updated_at 2025_04_11;)

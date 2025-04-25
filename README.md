@@ -53,7 +53,7 @@ alert any any -> any any (msg:""; <insert rule>; classtype:command-and-control; 
 | Google Calendar                   | Suricata  | 3, 1000330-1000332   | rules/suricata/34_google_calendar_lolc2.rules           |
 | Google Slides                     | Suricata  | 4, 1000340-1000343   | rules/suricata/35_google_slides_lolc2.rules             |
 | GitHub                            | Suricata  | 3, 1000350-1000352   | rules/suricata/36_github_lolc2.rules                    |
-| YouTube                           | Suricata  | 0, 1000360-1000360   | rules/suricata/37_youtube_lolc2.rules                   |
+| YouTube                           | Suricata  | 3, 1000360-1000362   | rules/suricata/37_youtube_lolc2.rules                   |
 | Pastebin                          | Suricata  | 0, 1000370-1000370   | rules/suricata/38_pastebin_lolc2.rules                  |
 | Reddit                            | Suricata  | 0, 1000380-1000380   | rules/suricata/39_reddit_lolc2.rules                    |
 | Dropbox                           | Suricata  | 0, 1000390-1000390   | rules/suricata/40_dropbox_lolc2.rules                   |
