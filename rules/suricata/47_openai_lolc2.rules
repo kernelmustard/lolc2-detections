@@ -1,0 +1,17 @@
+alert dns $HOME_NET any -> any 53 (msg:"LOLC2 OpenAI (API in DNS Query)"; dns.query; content:"api.openai.com"; nocase; classtype:command-and-control; sid:1000460; rev:1; reference:url,https://lolc2.github.io/; metadata:created_at 2025_04_11, confidence Medium, signature_severity Medium, updated_at 2025_04_11;)
+
+alert tls $HOME_NET any <> $EXTERNAL_NET any (msg:"LOLC2 OpenAI (API in TLS SNI)"; tls.sni; content:"api.openai.com"; nocase; classtype:command-and-control; sid:1000461; rev:1; reference:url,https://lolc2.github.io/; metadata:created_at 2025_04_11, confidence Medium, signature_severity Medium, updated_at 2025_04_11;)
+
+alert dns $HOME_NET any -> any 53 (msg:"LOLC2 OpenAI (UserContent in DNS Query)"; dns.query; content:"files.oaiusercontent.com"; endswith; classtype:command-and-control; sid:1000462; rev:1; reference:url,https://lolc2.github.io/; metadata:created_at 2025_04_11, confidence Medium, signature_severity Medium, updated_at 2025_04_11;)
+
+alert tls $HOME_NET any <> $EXTERNAL_NET any (msg:"LOLC2 OpenAI (UserContent in TLS SNI)"; tls.sni; content:"files.oaiusercontent.com"; endswith; classtype:command-and-control; sid:1000463; rev:1; reference:url,https://lolc2.github.io/; metadata:created_at 2025_04_11, confidence Medium, signature_severity Medium, updated_at 2025_04_11;)
+
+# POST - url: https://api.openai.com/v1/files/*
+alert http $HOME_NET any -> $EXTERNAL_NET any (msg:"LOLC2 OpenAI (POST files API in HTTP Host and URI)"; http.host; content:"api.openai.com"; http.method; content:"POST"; http.uri; content:"/v1/files/"; startswith; bsize:>10; classtype:command-and-control; sid:1000464; rev:1; reference:url,https://lolc2.github.io/; metadata:created_at 2025_04_11, confidence Medium, signature_severity Medium, updated_at 2025_04_11;)
+
+# GET - url: https://api.openai.com/v1/files/*/content*
+# GET - url: https://api.openai.com/v1/files*
+alert http $HOME_NET any -> $EXTERNAL_NET any (msg:"LOLC2 OpenAI (GET files API in HTTP Host and URI)"; http.host; content:"api.openai.com"; http.method; content:"GET"; http.uri; content:"/v1/files"; startswith; pcre:"/^\/v1\/files(?:\/.+\/content)?.*/"; classtype:command-and-control; sid:1000465; rev:1; reference:url,https://lolc2.github.io/; metadata:created_at 2025_04_11, confidence Medium, signature_severity Medium, updated_at 2025_04_11;)
+
+# POST - url: *files.oaiusercontent.com*
+alert http $HOME_NET any -> $EXTERNAL_NET any (msg:"LOLC2 OpenAI (POST usercontent in HTTP Host and URI)"; http.host; content:"files.oaiusercontent.com"; http.method; content:"POST"; classtype:command-and-control; sid:1000466; rev:1; reference:url,https://lolc2.github.io/; metadata:created_at 2025_04_11, confidence Medium, signature_severity Medium, updated_at 2025_04_11;)
