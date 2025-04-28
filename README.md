@@ -56,8 +56,8 @@ alert any any -> any any (msg:""; <insert rule>; classtype:command-and-control; 
 | YouTube                           | Suricata  | 3, 1000360-1000362   | rules/suricata/37_youtube_lolc2.rules                   |
 | Pastebin                          | Suricata  | 4, 1000370-1000370   | rules/suricata/38_pastebin_lolc2.rules                  |
 | Reddit                            | Suricata  | 3, 1000380-1000382   | rules/suricata/39_reddit_lolc2.rules                    |
-| Dropbox                           | Suricata  | 0, 1000390-1000390   | rules/suricata/40_dropbox_lolc2.rules                   |
-| Instagram                         | Suricata  | 0, 1000400-1000400   | rules/suricata/41_instagram_lolc2.rules                 |
+| Dropbox                           | Suricata  | 5, 1000390-1000390   | rules/suricata/40_dropbox_lolc2.rules                   |
+| Instagram                         | Suricata  | 4, 1000400-1000400   | rules/suricata/41_instagram_lolc2.rules                 |
 | Zoom                              | Suricata  | 0, 1000410-1000410   | rules/suricata/42_zoom_lolc2.rules                      |
 | Virustotal                        | Suricata  | 0, 1000420-1000420   | rules/suricata/43_virustotal_lolc2.rules                |
 | Zulip                             | Suricata  | 0, 1000430-1000430   | rules/suricata/44_zulip_lolc2.rules                     |
