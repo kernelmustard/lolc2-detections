@@ -59,7 +59,7 @@ alert any any -> any any (msg:""; <insert rule>; classtype:command-and-control; 
 | Dropbox                           | Suricata  | 5, 1000390-1000390   | rules/suricata/40_dropbox_lolc2.rules                   |
 | Instagram                         | Suricata  | 4, 1000400-1000400   | rules/suricata/41_instagram_lolc2.rules                 |
 | Zoom                              | Suricata  | 3, 1000410-1000410   | rules/suricata/42_zoom_lolc2.rules                      |
-| Virustotal                        | Suricata  | 0, 1000420-1000420   | rules/suricata/43_virustotal_lolc2.rules                |
+| Virustotal                        | Suricata  | 3, 1000420-1000420   | rules/suricata/43_virustotal_lolc2.rules                |
 | Zulip                             | Suricata  | 0, 1000430-1000430   | rules/suricata/44_zulip_lolc2.rules                     |
 | Notion                            | Suricata  | 0, 1000440-1000440   | rules/suricata/45_notion_lolc2.rules                    |
 | Matrix                            | Suricata  | 0, 1000450-1000450   | rules/suricata/46_matrix_lolc2.rules                    |
