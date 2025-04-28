@@ -1,0 +1,6 @@
+# url: https://api.notion.com*
+alert dns $HOME_NET any -> any 53 (msg:"LOLC2 Notion (API in DNS Query)"; dns.query; content:"api.notion.com"; nocase; classtype:command-and-control; sid:1000440; rev:1; reference:url,https://lolc2.github.io/; metadata:created_at 2025_04_11, confidence Medium, signature_severity Medium, updated_at 2025_04_11;)
+
+alert tls $HOME_NET any <> $EXTERNAL_NET any (msg:"LOLC2 Notion (API in TLS SNI)"; tls.sni; content:"api.notion.com"; nocase; classtype:command-and-control; sid:1000441; rev:1; reference:url,https://lolc2.github.io/; metadata:created_at 2025_04_11, confidence Medium, signature_severity Medium, updated_at 2025_04_11;)
+
+alert http $HOME_NET any -> $EXTERNAL_NET any (msg:"LOLC2 Notion (API in HTTP Host)"; http.host; content:"api.notion.com"; classtype:command-and-control; sid:1000442; rev:1; reference:url,https://lolc2.github.io/; metadata:created_at 2025_04_11, confidence Medium, signature_severity Medium, updated_at 2025_04_11;)
