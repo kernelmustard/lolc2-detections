@@ -1,0 +1,6 @@
+# url: https://api.zoom.us/v2/chat/users/me/*
+alert dns $HOME_NET any -> any 53 (msg:"LOLC2 Zoom (API in DNS Query)"; dns.query; content:"api.zoom.us"; nocase; classtype:command-and-control; sid:1000410; rev:1; reference:url,https://lolc2.github.io/; metadata:created_at 2025_04_11, confidence Medium, signature_severity Medium, updated_at 2025_04_11;)
+
+alert tls $HOME_NET any <> $EXTERNAL_NET any (msg:"LOLC2 Zoom (API in TLS SNI)"; tls.sni; content:"api.zoom.us"; nocase; classtype:command-and-control; sid:1000411; rev:1; reference:url,https://lolc2.github.io/; metadata:created_at 2025_04_11, confidence Medium, signature_severity Medium, updated_at 2025_04_11;)
+
+alert http $HOME_NET any -> $EXTERNAL_NET any (msg:"LOLC2 Zoom (API in HTTP Host and URI)"; http.host; content:"api.zoom.us"; http.uri; content:"/v2/chat/users/me/"; startswith; classtype:command-and-control; sid:1000412; rev:1; reference:url,https://lolc2.github.io/; metadata:created_at 2025_04_11, confidence Medium, signature_severity Medium, updated_at 2025_04_11;)
