@@ -62,7 +62,7 @@ alert any any -> any any (msg:""; <insert rule>; classtype:command-and-control; 
 | Virustotal                        | Suricata  | 3, 1000420-1000420   | rules/suricata/43_virustotal_lolc2.rules                |
 | Zulip                             | Suricata  | 3, 1000430-1000430   | rules/suricata/44_zulip_lolc2.rules                     |
 | Notion                            | Suricata  | 3, 1000440-1000440   | rules/suricata/45_notion_lolc2.rules                    |
-| Matrix                            | Suricata  | 0, 1000450-1000450   | rules/suricata/46_matrix_lolc2.rules                    |
+| Matrix                            | Suricata  | 4, 1000450-1000450   | rules/suricata/46_matrix_lolc2.rules                    |
 | OpenAI                            | Suricata  | 0, 1000460-1000460   | rules/suricata/47_openai_lolc2.rules
 
 # TODO

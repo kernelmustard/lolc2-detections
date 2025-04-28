@@ -1,0 +1,10 @@
+# POST - url: https://matrix.org/_matrix/client/r0/rooms/*/send/m.room.message
+# GET - url: https://matrix.org/_matrix/client/r0/rooms/*/messages
+
+alert dns $HOME_NET any -> any 53 (msg:"LOLC2 Matrix (DNS Query)"; dns.query; content:"matrix.org"; nocase; classtype:command-and-control; sid:1000450; rev:1; reference:url,https://lolc2.github.io/; metadata:created_at 2025_04_11, confidence Medium, signature_severity Medium, updated_at 2025_04_11;)
+
+alert tls $HOME_NET any <> $EXTERNAL_NET any (msg:"LOLC2 Matrix (TLS SNI)"; tls.sni; content:"matrix.org"; nocase; classtype:command-and-control; sid:1000451; rev:1; reference:url,https://lolc2.github.io/; metadata:created_at 2025_04_11, confidence Medium, signature_severity Medium, updated_at 2025_04_11;)
+
+alert http $HOME_NET any -> $EXTERNAL_NET any (msg:"LOLC2 Matrix (POST message in HTTP Host and URI)"; http.host; content:"matrix.org"; http.method; content:"POST"; http.uri; content:"/_matrix/client/r0/rooms/"; startswith; content:"/send/m.room.message"; endswith; classtype:command-and-control; sid:1000452; rev:1; reference:url,https://lolc2.github.io/; metadata:created_at 2025_04_11, confidence Medium, signature_severity Medium, updated_at 2025_04_11;)
+
+alert http $HOME_NET any -> $EXTERNAL_NET any (msg:"LOLC2 Matrix (GET message in HTTP Host and URi)"; http.host; content:"matrix.org"; http.method; content:"GET"; http.uri; content:"/_matrix/client/r0/rooms/"; startswith; content:"/messages"; endswith; classtype:command-and-control; sid:1000453; rev:1; reference:url,https://lolc2.github.io/; metadata:created_at 2025_04_11, confidence Medium, signature_severity Medium, updated_at 2025_04_11;)
